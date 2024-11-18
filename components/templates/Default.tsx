@@ -4,6 +4,16 @@ import React, { useRef, useState, useEffect } from "react";
 import { CalendarIcon, Plus, Trash2 } from "lucide-react";
 import { useReactToPrint } from "react-to-print";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+
+import {
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 import {
   Table,
@@ -406,6 +416,30 @@ export default function Default() {
                 className="font-semibold text-lg px-2 rounded-md border w-full bg-white"
               />
             </div>
+            <Drawer>
+              <DrawerTrigger asChild>
+                <Button className="w-full font-semibold mb-2">
+                  Change Template
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="mx-auto w-full">
+                  <DrawerHeader>
+                    <DrawerTitle className="text-2xl">
+                      Select Template
+                    </DrawerTitle>
+                  </DrawerHeader>
+                  <div className="p-4 grid grid-cols-5 justify-evenly">
+                    <Skeleton className="w-[230px] h-[250px] rounded-md" />
+                    <Skeleton className="w-[230px] h-[250px] rounded-md" />
+                    <Skeleton className="w-[230px] h-[250px] rounded-md" />
+                    <Skeleton className="w-[230px] h-[250px] rounded-md" />
+                    <Skeleton className="w-[230px] h-[250px] rounded-md" />
+                  </div>
+                  <DrawerFooter></DrawerFooter>
+                </div>
+              </DrawerContent>
+            </Drawer>
             <Button
               onClick={handleOnClick}
               className="w-full uppercase font-semibold"
